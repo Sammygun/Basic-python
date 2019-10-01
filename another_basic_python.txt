@@ -1,0 +1,408 @@
+Basic python
+
+в командной строке просто ввожу python windows и могу уже кодить 
+Ctrl + Z для Windows или exit (Ctrl + D для Mac/Linux)
+>>> exit()  # выйти
+
+integer 5
+string "" ''
+
+
+>>> 2 ** 3
+8
+
+>>> "Ola"
+'Ola' # Кавычки говорят Python'у, что внутри них находится строка.
+
+>>> "Hi there " + "Ola"
+'Hi there Ola'
+
+
+>>> "Ola" * 3
+'OlaOlaOla'
+
+"Runnin' down the hill" # можно и так писать
+
+>>> 'Runnin\' down the hill'  # можно и так что спраятать запятую лишнию
+"Runnin' down the hill"
+
+>>> "Ola".upper() # метод с большой буквы метод потому что функция только  для строк(объкт) но тоже функция
+'OLA'
+len("Ola") # работает
+
+print(len("Ola")) # для len всех значит функция
+
+'My name is "Ola"'  # так будет работать
+'My name is "Ola" and I \'m programmer' # \ показываем что код не заканчивается
+
+____________________________________
+
+len(304023)  # будет ошибка так как целые числа int не имеют длины
+len("304023") #  так посчитает
+>>> len(str(304023)) # Но так все посчитает так как мы перевили в строку
+
+
+Функция str преобразует объекты в строки
+Функция int преобразует объекты в целые числа
+
+int('hello') # Но так будет ошибка нельзя в целые числа перевести буквы
+
+Error Our friends, type errors
+
+>> name = "Ola"
+>>> "Hi " + name
+'Hi Ola'
+name = "Liz" #поменяется название после присвоения последнего
+"Liz"
+
+name variables must be nice
+
+_______________________________________________________________________________________
+Список
+
+lottery = [1, 2, 3, 4, 5, 6]
+print[lottery]
+[1, 2, 3, 4, 5, 6]
+>>> len(lottery)
+>>> 6       # посчитает количество переменных а не их Id
+>>>l
+
+ 
+>>> lottery.sort()  # отсортирует помни про ()
+>>> print(lottery)
+[1, 2, 3, 4, 5, 6]
+
+>>> lottery.reverse() # Обратную сторону
+>>> print(lottery)
+[6, 5, 4, 3, 2, 1]
+ 
+>>> lottery.append(100) # добавляю 100
+>>> print(lottery)
+[6, 5, 4, 3, 2, 1, 100]
+
+>>> print(lottery[0]) # вот тут ищем по индекусу 0 значит 6
+6
+
+>>> del lottery [2]
+>>> >>> lottery.pop(2) # можно и так
+>>> print(lottery)
+[6, 5, 3, 2, 1, 100]  # 4 номер удалился
+
+print(lottery[1000])
+IndexError: list index out of range # Индексная ошибка
+
+>>> names = ["Ola", "liz", "Sonya"] # как пример
+>>> print(names)
+['Ola', 'liz', 'Sonya']
+
+>>> mixed = ["Ola", 7, [1, 2, 3, 4, 5]] # намиксованный
+>>> mixed
+['Ola', 7, [1, 2, 3, 4, 5]]
+___________________________________________________________________________
+Словари
+доступ получаем по ключу
+номер телефона мы ищем по имени его телефон это есть ключь
+---------------------------------------------------
+>>> participant = {'name': 'Ola', 'country': 'Poland', 'favorite_numbers': [7, 42, 92]}
+Этой командой ты создала переменную participant с тремя парами ключ/значение:
+
+ключ name, указывающий на значение 'Ola' (объект типа строка),
+ключ country, указывающий на значение 'Poland' (еще одна строка),
+и ключ favorite_numbers, указывающий на значение [7, 42, 92] (объект типа список с тремя числами внутри).
+
+Когда стоит использовать словарь, а когда список? Это хороший вопрос для самостоятельного размышления. Сделай предположение перед тем, как читать дальше.
+
+Тебе нужна упорядоченная последовательность элементов? Список — наш выбор.
+Тебе нужны сочетания ключ/значение, чтобы быстро искать значения (по ключу) в дальнейшем? Словарь отлично подойдет.
+Словари, как и списки, изменяемы, т. е. они могут быть изменены после того как были созданы. Ты можешь добавить новые пары ключ/значение в словарь следующим образом:
+
+command-line
+>>> participant['favorite_language'] = 'Python'
+------------------------------------------------------------------------
+
+phonebook = {'liz' : '44 000000', 'Mary' : '1111111', 'Alice' : '44 222222', 'Maria' : '44112223333'}
+>>> phonebook
+{'liz': '44 000000', 'Mary': '1111111', 'Alice': '44 222222', 'Maria': '44112223333'}
+
+словарь нам нужен для того чтобы по ключу получить доступ к данным полязователя как пример по имени его посмотреть где они живет почта и т.д.
+
+ participant = {'name': 'Ola', 'country': 'Poland', 'favorite_numbers': [7, 42, 92]}
+print(participant['name']) # вместо того чтобы искать по индексу мы ищем по ключу
+
+>>> print(participant['country'])
+Poland
+
+>>> print(participant['age'])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'age' #!!!!!!!!!!!!!!! age ошибка нету такого значения
+
+
+participant = {'name': 'Ola', 'name' : 'Liz', 'country': 'Poland', 'favorite_numbers': [7, 42, 92]}
+>>> participant
+{'name': 'Liz', 'country': 'Poland', 'favorite_numbers': [7, 42, 92]} # заменит Ola на liz как и с переменной
+
+>>> participant['favorite_language'] = 'Python' # так можно добавлять в словарь
+>>> participant
+{'name': 'Liz', 'country': 'Poland', 'favorite_numbers': [7, 42, 92], 'favorite_language': 'Python'}
+>>>
+
+>>> len(participant) # находим 4 ключа
+4                            
+
+ 
+del paricipant['favorite_language'] # удаляем из словаря обозначения
+participant['country'] = 'Uk'# меняем обзначение poland на uk
+
+Подведём итог
+Шикарно! Теперь ты знаешь немало о программировании. Мы познакомились с:
+
+ошибками — теперь ты знаешь как читать и анализировать ошибки, которые возникают, если Python не понимает твоей команды;
+переменными — именами для объектов, которые упрощают твой код и делают его более читабельным;
+списками — последовательностями объектов в заданном порядке;
+словарями — объектами, хранящими пары ключ/значение.
+____________________________________________________________
+boolean
+
+True # Только так пишутся данные значения true false ошибка
+False 
+
+>>> 5 > 2
+True
+>>> 1 == 1
+True
+
+>>> 5 != 2 #  5 не равно 2 
+True
+SyntaxError:  # ошибке в синтаксисе
+
+>>> 6 >= 6
+True
+
+сначало >< потом равно >=, <=
+
+and true true
+or  true true , или true else
+
+not
+
+Пример
+>>> True and False
+False  # нету двух True
+
+>>> True or False  # или или True
+True
+
+>>> not True
+False
+
+>>> a = True
+>>> a
+True
+>>> a = 2 > 5 # !!!!!1
+>>> a
+False
+
+
+True and True
+False and True
+True or 1 == 1
+1 != 2
+________________________________________________________________________________
+if И сохранение
+в командной строке перейти в место где находится файл через cd и ls
+потом написать python python_intro.py
+
+C:\Users\sam\Desktop>python python_intro.py
+Hello world
+
+if condition:
+    block      # if something do something
+if 3 > 2:
+    print("it works")
+
+
+if 5 > 2:
+    print('5 is indeed greater than 2')  # если true То выполнится, если false то код ниже
+else:                      # если false то код ниже
+    print('5 is not greater than 2')
+-----------------------------------------------------------
+name = "Sonja"
+
+if name == 'Ola':        # false  # после If идет elif если надо еще раз
+    print('Hey Ola!')
+elif name == 'Sonja':           # else if true его напечатает
+    print('Hey Sonja')
+else:
+    print('Hey anonumus')
+-------------------------------------
+
+name = "Sonja"
+age = 21
+
+if age < 18:
+    print("You not allowed to read!") # можно использовать разные переменные разные условия вот это и выведит
+elif name == 'Ola':        # false  # после шf идет elif если надо еще раз
+    print('Hey Ola!')
+elif name == 'Sonja':           # else if true его напечатает
+    print('Hey Sonja')
+else:
+    print('Hey anonumus')
+
+Можно ограничиться и одним пробелом перед print, однако практически все программисты Python используют 4, чтобы код выглядел аккуратно и читабельно. Каждая табуляция также считается за 4 пробела.
+
+elif позволяет добавить дополнительные условия, которые запускаются, если предыдущие не срабатывают.
+Можно использовать сколько угодно elif после первого if
+
+!!!!elif позволяет добавить дополнительные условия, которые запускаются, если предыдущие не срабатывают.!!!!!!!
+______________________________________________________________________________________________________________________________________________________________________________
+Функции
+
+чай (чашка вода чай и все вместе)
+
+def make_tea(cup,teabag,water):          # def говорит питону что мы пишем функцию
+ ...........
+
+def hi():            # writing our function
+    print('Hi there!')
+    print('How are you')
+
+hi()       # активирую данную функцию по ее имени
+
+
+
+Error best friends 
+Traceback (most recent call last):
+  File "python_intro.py", line 8, in <module>  # line 8
+    hi()
+TypeError: hi() missing 1 required positional argument: 'name' # "hi"не имеет значения name
+
+def hi(name):
+    if name == "Ola":
+        print('Hi Ola')
+    elif name == "Sonja":
+        print('Hi Sonja')
+    else:
+        print('Hi anonymous!')
+hi("Ola") 
+Hi Ola
+
+
+def hi(name):
+    print("Hi " + name + "!")
+hi("Sandra")   
+
+Hi Sandra!
+
+def area(side):
+    print(side * side)
+
+area(2)   # вызываем функцию
+area(4)
+
+
+def area(side):
+    return side * side  # return ничего не выводит
+
+print(area(2))  
+
+
+smal_square_area = area(2) # area(2) равно 4
+big_square_are = area(smal_square_area)     # здесь 4
+print(big_square_are) 
+
+ ошибку IndentationError, проверь, что обе строки с вызовом print начинаются с одинакового количества проблелов.
+NameError, то, возможно, ты что-то неправильно ввела, поэтому проверь, что ты использовала одно и то же имя при создании функции в строке def hi(): и при её вызове в строке hi().
+TypeError: hi() missing 1 required positional argument: 'name'
+_________________________________________________________________________________________________________________
+Loop
+Dont repeat yourself   DRY
+
+def hi(name):
+    print('Hi ' + name + '!')
+
+girls = ['Rachel', 'Monica', 'Phoebe', 'Ola', 'You']
+
+hi("Rachel")      # Берем из списка и используем имена в фукнкции hi
+hi("Monica")      # у нас hi(name) мы просто туда подставляем что угодно
+hi("Phoebe")
+hi("Ola")
+_______________________________________________________________
+def hi(name):          # тоже самое только быстрее
+    print('Hi ' + name + '!')
+
+girls = ['Rachel', 'Monica', 'Phoebe', 'Ola', 'You']
+
+for name in girls:        #name берем из списка
+    hi(name)
+
+
+for name in ['Rachel', 'Monica', 'Phoebe', 'Ola', 'You']
+    hi(name)
+#  к каждому значению в списке мы присвоим переменную name и запустим ее
+
+
+for name in 4:
+    print(name)
+Будет ошибка
+
+for ожидает от нас данные из списка и словаря
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+person = {
+    'name' : 'Ola',
+    'height' : 155,
+    'Favorite_language' : 'Python'
+}
+
+for element in person:
+    print(element)
+name            # выведит чисто ключи но не значения
+height
+Favorite_language
+
+for element in person.values():  # .values Но если так писать выведит значения ключей
+    print(element)
+Ola
+155
+Python
+
+for element in person.items():  # выводим и ключи и их значения
+    print(element)
+('name', 'Ola')
+('height', 155)
+('Favorite_language', 'Python')
+
+----------------------------------------------------------------------------------------------------------------------
+
+person = {
+    'name' : 'Ola',
+    'height' : 155,
+    'Favorite_language' : 'Python'
+}
+
+for key, value in person.items():     # по ключу и значению person.items (все показываем)
+    print('Person\'s ' + str(key) + ' is ' + str(value)) # персона ключь значение str(key) для того чтобы все перевести в строку а то вдруг есть цифры
+
+Person's name is Ola          # сначало прогонит по первой строке словаря потом по следующей и так далее
+Person's height is 155        #  height рост  значения value 155  
+Person's Favorite_language is Python
+
+
+Person\'s # Закрываем лишнию запятую
+_________________________________________________________________________________
+for number in range(1, 11):
+    print(number)
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10  # От одного до 11
+
+Обрати внимание что второе число (конец списка) не включается в результат работы функции (range(1, 11) создает список от 1 до 10, не включающий 11). Это потому, что «range» — полуоткрытый диапазон, то есть включает в себя первое значение, но не включает последнего.
